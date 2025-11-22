@@ -13,28 +13,25 @@ namespace Tyuiu.MatveevaAA.Sprint5.Task5.V7.Lib
     {
         public double LoadFromDataFile(string path)
         {
+            double res = 1;
+            int x = 0;
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    if ((Convert.ToInt32(Convert.ToDouble(line)) == Convert.ToDouble(line)) && (Convert.ToDouble(line) >= 0))
+                    if (int.TryParse(line.Trim(), out int number))
                     {
+                        x = number;
                         break;
                     }
-                    else
-                    {
-                        continue;
-                    }
                 }
-
-                long f = 1;
-                for (int i = 1; i <= Convert.ToDouble(line); i++)
-                {
-                    f *= i;
-                }
-                return Math.Round(Convert.ToDouble(f), 3);
             }
+            for (int i = 1; i <= x; i++)
+            {
+                res *= i;
+            }
+            return res;
         }
     }
 }

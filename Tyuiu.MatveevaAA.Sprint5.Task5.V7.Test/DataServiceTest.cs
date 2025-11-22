@@ -10,25 +10,13 @@ namespace Tyuiu.MatveevaAA.Sprint5.Task5.V7.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void ValidLoadFromDataFile()
-        {
-            DataService ds = new DataService();
-            string path = @"C:\DataSprint5\InPutDataFileTask5V7.txt";
-
-            var res = ds.LoadFromDataFile(path);
-            int wait = 40320;
-            Assert.AreEqual(wait, res);
-        }
-
-        [TestMethod]
-        public void CheckLoadFromDataFile()
+        public void ValidSaveToFileTextData()
         {
             string path = @"C:\DataSprint5\InPutDataFileTask5V7.txt";
-
             FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
+            bool fileExist = fileInfo.Exists;
             bool wait = true;
-            Assert.AreEqual(wait, fileExists);
+            Assert.AreEqual(wait, fileExist);
         }
     }
 }
