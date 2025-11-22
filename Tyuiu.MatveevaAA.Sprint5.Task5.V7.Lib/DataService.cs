@@ -13,21 +13,32 @@ namespace Tyuiu.MatveevaAA.Sprint5.Task5.V7.Lib
     {
         public double LoadFromDataFile(string path)
         {
+
+            string[] lines = File.ReadAllLines(path);
+            bool foundInteger = false;
+            int firstInteger = 0;
             double res = 1;
-            int x = 0;
-            using (StreamReader reader = new StreamReader(path))
+            foreach (var line in lines)
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+
+                string[] parts = line.Split(new[] { ' ', 't' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var part in parts)
                 {
-                    if (int.TryParse(line.Trim(), out int number))
+
+                    if (int.TryParse(part, out int number))
                     {
-                        x = number;
-                        break;
+                        if (!foundInteger)
+                        {
+                            firstInteger = number;
+                            foundInteger = true;
+                            break;
+                        }
                     }
                 }
+                if (foundInteger) break;
             }
-            for (int i = 1; i <= x; i++)
+            for (int i = 1; i <= firstInteger; i++)
             {
                 res *= i;
             }
