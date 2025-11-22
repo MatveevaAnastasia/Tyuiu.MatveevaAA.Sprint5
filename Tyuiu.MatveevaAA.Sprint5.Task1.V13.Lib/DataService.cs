@@ -12,31 +12,33 @@ namespace Tyuiu.MatveevaAA.Sprint5.Task1.V13.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string path = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask1.txt";
-
+            //$@"{Directory.GetCurrentDirectory()}\OutPutFileTask0.txt"
+            string path = Path.GetTempFileName();
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
-
             if (fileExists)
-                File.Delete(path);
-
-            double y;
-            string strY;
-            for (double x = startValue; x <= stopValue; x++)
             {
-                y = Math.Round((2 * x - 3) / (Math.Cos(x) + x) + 5, 2, MidpointRounding.AwayFromZero);
-                strY = Convert.ToString(y);
+                File.Delete(path);
+            }
+            double y;
+            string stry;
+            for (int x = startValue; x <= stopValue; x++)
+            {
+                if (Math.Cos(x) + x == 0)
+                    y = 0;
+                else
+                    y = Math.Round(((2 * x - 3) / (Math.Cos(x) + x) + 5), 2);
+                stry = Convert.ToString(y);
                 if (x != stopValue)
                 {
-                    File.AppendAllText(path, strY + Environment.NewLine);
+                    File.AppendAllText(path, stry + Environment.NewLine);
                 }
                 else
                 {
-                    File.AppendAllText(path, strY);
+                    File.AppendAllText(path, stry);
                 }
             }
             return path;
-
         }
     }
 }

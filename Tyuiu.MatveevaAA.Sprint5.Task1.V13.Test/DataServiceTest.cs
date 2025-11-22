@@ -9,13 +9,13 @@ namespace Tyuiu.MatveevaAA.Sprint5.Task1.V13.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void ValidSaveToFileTextData()
+        public void TestMethod1()
         {
-            string path = $@"C:\Users\Renat\source\repos\Tyuiu.MatveevaAA.Sprint5\Tyuiu.MatveevaAA.Sprint5.Task1.V13\bin\Debug\OutPutFileTask1.txt";
+            string path = Path.GetTempFileName();
             FileInfo fileInfo = new FileInfo(path);
-            bool fileExist = fileInfo.Exists;
+            bool fileExists = fileInfo.Exists;
             bool wait = true;
-            Assert.AreEqual(wait, fileExist);
+            Assert.AreEqual(wait, fileExists);
         }
     }
 }

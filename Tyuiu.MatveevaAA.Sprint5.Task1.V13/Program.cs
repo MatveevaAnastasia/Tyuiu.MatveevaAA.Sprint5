@@ -12,13 +12,13 @@ namespace Tyuiu.MatveevaAA.Sprint5.Task1.V13
         static void Main(string[] args)
         {
             DataService ds = new DataService();
-            Console.Title = "Спринт #5 | Выполнил: Хасанов Р. В. | СМАРТб-23-1";
+            Console.Title = "Спринт #5 | Выполнил: Матвеева Анастасия | ПКТБ-25-1 ";
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #5                                                               *");
             Console.WriteLine("* Тема: Класс File. Запись данных в текстовый файл                        *");
             Console.WriteLine("* Задание #1                                                              *");
             Console.WriteLine("* Вариант #13                                                             *");
-            Console.WriteLine("* Выполнил: Хасанов Ренат Владиславович | СМАРТб-23-1                     *");
+            Console.WriteLine("* Выполнил: Матвеева Анастасия |  ПКТБ-25-1                     *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
             Console.WriteLine("* Дана функция F(x) = (2x-3)/(cos(x)+x) + 5 (произвести табулирование)    *");
@@ -29,17 +29,19 @@ namespace Tyuiu.MatveevaAA.Sprint5.Task1.V13
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
-            int start = -5, end = 5;
-            Console.WriteLine("Старт = " + start);
-            Console.WriteLine("Конец = " + end);
+            int start = -15;
+            int stop = 15;
+            Console.WriteLine("Старт диапазона = " + start);
+            Console.WriteLine("Стоп диапазона = " + stop);
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
-            string result = ds.SaveToFileTextData(start, end);
-            Console.WriteLine("Файл: " + result);
+
+            string res = ds.SaveToFileTextData(start, stop);
+            Console.WriteLine("Файл: " + res);
             Console.WriteLine("Создан!");
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
